@@ -1,50 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Reset CSS-->
     <link rel="stylesheet" href="reset.css">
+    <!--Font Awesome CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!--Materialize CSS Framework-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Style CSS-->
     <link rel="stylesheet" href="style.css">
+
     <title>Quarantine Planner</title>
 </head>
 
-<body> 
+<body>
     <header>
-        <h1><a href="index.html">Quarantine Day Planner</a></h1>
-        <hr>
+        <div class="row">
+            <h1><a href="index.html">Quarantine Day Planner</a></h1>
+        </div>
+
+        <div class="row">
+            <hr class="col s8 push-s2">
+        </div>
     </header>
 
-    <div class="date weather">
-        <!--In JavaScript, input date using moment.format()-->
-        <!--In Javascript, input weather in San Diego using aJax-->
-    </div>
-
-    <div id="greeting">
-        <!--Use JavaScript to find out user's time for greeting-->
-    </div>
-
     <div id="container">
-        <div class="card">
-            <!-- Energetic-->
+        <div class="row">
+            <div class="date weather">
+                <!--In JavaScript, input date using moment.format()-->
+                <!--In Javascript, input weather in San Diego using aJax-->
+            </div>
         </div>
 
-        <div class="card">
-            <!--Lazy / Netflix-->
+        <div class="row">
+            <div class="col s12">
+                <h3 id="greeting"></h3>
+                <h3>What Do You Want To Do Today?</h3>
+            </div>
+        </div>
+        <div class="divider"></div>
+
+
+        <!--buttons-->
+        <!--Row 1 Buttons-->
+        <div class="row">
+            <div class="col s6 push-s2">
+                <li>
+                    <button class="button-hover-like button blue lighten-5 z-depth-2" onclick="window.location.href='dosomething.html'" > <span>Do Something</span><i
+                            class="fas fa-running"></i></button>
+                </li>
+            </div>
+
+            <div class="col s6 push-s2">
+                <li>
+                    <button class="button-hover-like button blue lighten-5 z-depth-2" onclick= "window.location.href='donothing.html'"> <span>Do Nothing</span><i
+                            class="fas fa-video"></i>
+                        </button>
+                </li>
+            </div>
         </div>
 
-        <div class="card">
-            <!-- Going Outside The House-->
+        <!--Row 2 Buttons-->
+        <div class="row">
+            <div class="col s6 push-s2">
+                <li>
+                    <button class="button-hover-like button blue lighten-5 z-depth-2" onclick= "window.location.href='getoutside.html'"><span>Get Outside</span><i
+                            class="fas fa-cloud-sun"></i></button>
+                </li>
+            </div>
+
+            <div class="col s6 push-s2">
+                <li>
+                    <button class="button-hover-like button blue lighten-5 z-depth-2" onclick= "window.location.href='joke.html'"><span>Tell Me A Joke!</span><i
+                            class="fas fa-smile-wink"></i></button>
+                </li>
+            </div>
         </div>
 
-        <div class="card">
-            <!--Tell Me A Joke-->
-        </div>
+
+
+
     </div>
 
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
 
 
     
 
-<script src="script.js"></script>    
-</body>
-</html>

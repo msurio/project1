@@ -15,7 +15,7 @@ h4{
 
 hr{
   position:relative;
-  border:2px solid black;
+  border:1px solid black;
 }
 
 
@@ -54,18 +54,30 @@ hr{
   transition: 0.4s right cubic-bezier(0.38, 0.6, 0.48, 1);
 }
 
-.button-hover-like:hover {
-  border-color: #1779ba;
+.button-hover-like.one :hover {
+  border-color: #17ba4b;
+  background: transparent;
+  transition: border-color 0.2s;
+  
+}
+
+.button-hover-like.one :hover span {
+  margin-right: 20px;
+  color: #17ba4b;
+}
+ .button-hover-like.two :hover {
+  border-color: #dc2c18;
   background: transparent;
   transition: border-color 0.2s;
 }
 
-.button-hover-like:hover span {
+.button-hover-like.two :hover span {
   margin-right: 20px;
-  color: #1779ba;
-}
+  color: #dc2c18;
+} */
 
-.button-hover-like:hover .fa {
+
+.button-hover-like:hover {
   right: 10px;
 }
 
@@ -73,4 +85,7 @@ li {
   float: left;
   display: flex;
   padding: 20px;
+
 }
+
+/*media querires down below: */
