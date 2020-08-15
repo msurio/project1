@@ -1,54 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <!--Reset CSS-->
     <link rel="stylesheet" href="reset.css">
+    <!--Font Awesome CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!--Materialize CSS Framework-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Style CSS-->
     <link rel="stylesheet" href="style.css">
+
     <title>Quarantine Planner</title>
 </head>
 
-<body> 
+<body>
     <header>
-        <h1>Quarantine Day Planner</h1>
-        <hr>
+        <div class="row">
+            <h1 class="col s12">Quarantine Day Planner</h1>
+        </div>
+
+        <div class="row">
+            <hr class="col s8 push-s2">
+        </div>
     </header>
 
-    <div class="date weather">
-        <!--In JavaScript, input date using moment.format()-->
-        <!--In Javascript, input weather in San Diego using aJax-->
-    </div>
-
-    <!---->
-    <div>
-        <h3 id="greeting"></h3>
-        <h3>How Are You Feeling Today?</h3>
-    </div>
-
     <div id="container">
-        <button type="button">Do Something</button>
-            <!-- Do Something-->
+        <div class="row">
+            <div class="date weather">
+                <!--In JavaScript, input date using moment.format()-->
+                <!--In Javascript, input weather in San Diego using aJax-->
+            </div>
         </div>
 
-        <button type="button">Do Nothing</button>
-            <!--Do Nothing-->
+        <div class="row">
+            <div class="col s12">
+                <h4 id="greeting"></h4>
+                <h4>What Do You Want To Do Today?</h4>
+            </div>
+        </div>
+        <div class="divider"></div>
+
+
+        <!--buttons-->
+        <!--Row 1 Buttons-->
+        <div class="row">
+            <div class="col l6 push-l2 m6 s12">
+                <li>
+                    <button class="button-hover-like button blue lighten-5 z-depth-2"><span>Do Something</span>
+                        <i class="fas fa-running"></i>
+                    </button>
+                </li>
+            </div>
+
+            <div class="col l6 push-l1 m6 s12">
+                <li>
+                    <button class="button-hover-like button blue lighten-5 z-depth-2"><span>Do Nothing</span>
+                        <i class="fas fa-video"></i>
+                    </button>
+                </li>
+            </div>
         </div>
 
-        <div class="card">
-            <!-- Going Outside The House-->
+        <!--Row 2 Buttons-->
+        <div class="row">
+            <div class="col l6 push-l2 m6 s12">
+                <li>
+                    <button class="button-hover-like button blue lighten-5 depth-2"><span>Get Outside</span>
+                        <i class="fas fa-cloud-sun"></i></button>
+                </li>
+            </div>
+
+            <div class="col l6 push-l1 m6 s12">
+                <li>
+                    <button class="button-hover-like button blue lighten-5 depth-2"><span>Tell Me A Joke!</span>
+                        <i class="fas fa-smile-wink"></i></button>
+                </li>
+            </div>
         </div>
 
-        <div class="card">
-            <!--Tell Me A Joke-->
-        </div>
+
+
+
     </div>
 
 
 
-    
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="script.js"></script>    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
-
-
