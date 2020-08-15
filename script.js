@@ -1,5 +1,3 @@
-var city = 'San Diego';
-
 $(document).ready(function () {
     //Greeting Users:
     var myDate = new Date();
@@ -15,59 +13,45 @@ $(document).ready(function () {
     }
 
     $('#greeting').text(greet);
-    
-   //weather function
-   function renderWeather() {
-    // var city = 'san diego';
-    var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=99adabcd9b9526ae2fc8e7bbc24f5de4';
 
-    $.ajax({
-        url: queryURL,
-        method: 'GET'
-    }).then(function(response) {
+    //weather function
+    function renderWeather() {
+        var city = 'san diego';
+        var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=99adabcd9b9526ae2fc8e7bbc24f5de4';
 
-        var temp = response.main.temp;
-        var iconCode = response.weather[0].icon;
-        var iconUrl = 'http://openweathermap.org/img/w/' + iconCode + '.png';
-        console.log(temp);
-        console.log(iconUrl);
-        
-        $('.weather').append(city + '   ');
-        $('.weather').append(temp + '&deg;F');
-        $('#wicon').attr('src', iconUrl);
-    
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).then(function (response) {
 
-    })
-};
+            var temp = response.main.temp;
+            var iconCode = response.weather[0].icon;
+            var iconUrl = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+            console.log(temp);
+            console.log(iconUrl);
 
-// render the date
-jQuery(document).ready(function($) {
+            $('.weather').append(city + '   ');
+            $('.weather').append(temp + '&deg;F');
+            $('#wicon').attr('src', iconUrl);
+
+
+        });
+    };
+
+    /* render the date
     var today = moment().format('dddd, MMMM Do, YYYY : hh:mm A');
     $('#date').append(today);
-})
+    */
 
 
-
-function renderDate() {
-
-    var date = moment().format('M[/]DD[/]YYYY')
-    console.log(date);
-};
-
-
-function renderDoSomething() {
-    var queryUrl = 'https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU';
-}
-
-
+    function renderDoSomething() {
+        var queryUrl = 'https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU';
+    }
 
 renderWeather();
-renderDate();
 
 
-
-   
-//campground API key ZX7CCMKAUBMGHEHP5TVW8QK7
+    
 
 })
 
