@@ -48,8 +48,8 @@ $(document).ready(function () {
         var queryUrl = 'https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU';
     }
 
-renderWeather();
 
+    renderWeather();
 
     
 
