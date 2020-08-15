@@ -1,3 +1,5 @@
+var city = 'San Diego';
+
 $(document).ready(function () {
     //Greeting Users:
     var myDate = new Date();
@@ -14,45 +16,43 @@ $(document).ready(function () {
 
     $('#greeting').text(greet);
     
-    //weather function
-    function renderWeather() {
-        var city = 'san diego';
-        var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=99adabcd9b9526ae2fc8e7bbc24f5de4';
+   //weather function
+   function renderWeather() {
+    // var city = 'san diego';
+    var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=99adabcd9b9526ae2fc8e7bbc24f5de4';
 
-        $.ajax({
-            url: queryURL,
-            method: 'GET'
-        }).then(function (response) {
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    }).then(function(response) {
 
-            var temp = response.main.temp;
-            var iconCode = response.weather[0].icon;
-            var iconUrl = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+        var temp = response.main.temp;
+        var iconCode = response.weather[0].icon;
+        var iconUrl = 'http://openweathermap.org/img/w/' + iconCode + '.png';
+        console.log(temp);
+        console.log(iconUrl);
+        
+        $('.weather').append(city + '   ');
+        $('.weather').append(temp + '&deg;F');
+        $('#wicon').attr('src', iconUrl);
+    
 
-            console.log(temp);
+    })
+};
 
-        })
-    };
-
-
-
-
-        var date = moment().format('M[/]DD[/]YYYY')
-        $('.date').text(date);
-
-
-
-
-
-    // YouTube API key AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU
-    // YouTube URL https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU
-
-    // Amazon fitne
-
-
-
-
+// render the date
+jQuery(document).ready(function($) {
+    var today = moment().format('dddd, MMMM Do, YYYY : hh:mm A');
+    $('#date').append(today);
 })
 
+
+
+function renderDate() {
+
+    var date = moment().format('M[/]DD[/]YYYY')
+    console.log(date);
+};
 
 
 function renderDoSomething() {
@@ -62,21 +62,14 @@ function renderDoSomething() {
 
 
 renderWeather();
-//renderDate();
+renderDate();
 
 
 
    
 //campground API key ZX7CCMKAUBMGHEHP5TVW8QK7
 
-
-
-// YouTube API key AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU
-// YouTube URL https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU
-
-// Amazon fitness 
-
-
+})
 
 // YouTube API key AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU
 // YouTube URL https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyDG00SsuoM_lFTEQpzWlbKSbkcJJUuyVKU
@@ -84,4 +77,4 @@ renderWeather();
 // Amazon fitness 
 
 
-// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment
+// Amazon API k//search url https://api.rainforestapi.com/request?api_key={OurAPIKey}_domain=amazon.com&type=search&search_term=fitness+equipment

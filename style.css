@@ -1,75 +1,91 @@
 body{
-    text-align:center;
+  text-align:center;
 }
 
 h1{
-    position:relative;
-    font-weight:bolder;
-    padding:10px;
+  position:relative;
+  font-weight:bolder;
+  padding:10px;
 }
 
 h4{
-    font-family: 'Cantarell', sans-serif;
-    padding:10px;
+  font-family: 'Cantarell', sans-serif;
+  padding:10px;
 }
 
 hr{
-    position:relative;
-    border:2px solid black;
+  position:relative;
+  border:1px solid black;
 }
 
 
 .button{
-    padding:25px;
-    width:300px;
-    border-radius: 15px;
+  padding:25px;
+  width:300px;
+  border-radius: 15px;
+
 }
 
 
 .button-hover-like {
-    border: 2px solid #767676;
-    background: transparent;
-    color: #767676;
-    text-transform: uppercase;
-    overflow: hidden;
-    letter-spacing: 0.07rem;
-    transition: all 0.2s ease-in-out;
-    position: relative;
-  }
+  border: 2px solid #767676;
+  background: transparent;
+  color: #767676;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: 0.07rem;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.button-hover-like span {
+  transition: all 0.2s ease-in-out;
+}
+
+.button-hover-like .fa {
+  position: absolute;
+  font-size: 1.2rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #F15261;
+  right: -20px;
+  transition: 0.4s right cubic-bezier(0.38, 0.6, 0.48, 1);
+}
+
+.button-hover-like.one :hover {
+  border-color: #17ba4b;
+  background: transparent;
+  transition: border-color 0.2s;
   
-  .button-hover-like span {
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .button-hover-like .fa {
-    position: absolute;
-    font-size: 1.2rem;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    color: #F15261;
-    right: -20px;
-    transition: 0.4s right cubic-bezier(0.38, 0.6, 0.48, 1);
-  }
-  
-  .button-hover-like:hover {
-    border-color: #1779ba;
-    background: transparent;
-    transition: border-color 0.2s;
-  }
-  
-  .button-hover-like:hover span {
-    margin-right: 20px;
-    color: #1779ba;
-  }
-  
-  .button-hover-like:hover .fa {
-    right: 10px;
-  }
-  
-  li {
-    float: left;
-    display: flex;
-    padding: 20px;
-  }
+}
+
+.button-hover-like.one :hover span {
+  margin-right: 20px;
+  color: #17ba4b;
+}
+ .button-hover-like.two :hover {
+  border-color: #dc2c18;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.button-hover-like.two :hover span {
+  margin-right: 20px;
+  color: #dc2c18;
+} */
+
+
+.button-hover-like:hover {
+  right: 10px;
+}
+
+li {
+  float: left;
+  display: flex;
+  padding: 20px;
+
+}
+
+/*media querires down below: */
