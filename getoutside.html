@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!--Reset CSS-->
     <link rel="stylesheet" href="reset.css">
     <!--Font Awesome CSS-->
@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Style CSS-->
     <link rel="stylesheet" href="style.css">
+    <!--jQuery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 
     <title>Quarantine Planner</title>
 </head>
@@ -27,7 +30,6 @@
             <hr class="col s8 push-s2">
         </div>
     </header>
-
     <div id="container">
         <div class="row">
             <div class="date weather">
@@ -48,38 +50,64 @@
         <!--buttons-->
         <!--Row 1 Buttons-->
         <div class="row">
-            <div class="col s6 push-s2">
+            <div class="col l6 push-l2 m6 s12">
                 <li>
-                    <button class="button-hover-like button blue lighten-5 z-depth-2" onclick="window.location.href='dosomething.html'" > <span>Do Something</span><i
+                    <button class="button-hover-like button blue lighten-5 z-depth-2"
+                        onclick="window.location.href='dosomething.html'"> <span>Do Something</span><i
                             class="fas fa-running"></i></button>
                 </li>
             </div>
 
-            <div class="col s6 push-s2">
+            <div class="col l6 push-l2 m6 s12">
                 <li>
-                    <button class="button-hover-like button blue lighten-5 z-depth-2" onclick= "window.location.href='donothing.html'"> <span>Do Nothing</span><i
+                    <button class="button-hover-like button blue lighten-5 z-depth-2"
+                        onclick="window.location.href='donothing.html'"> <span>Do Nothing</span><i
                             class="fas fa-video"></i>
-                        </button>
+                    </button>
                 </li>
             </div>
         </div>
 
         <!--Row 2 Buttons-->
         <div class="row">
-            <div class="col s6 push-s2">
+            <div class="col l6 push-l2 m6 s12">
                 <li>
-                    <button class="button-hover-like button blue lighten-5 z-depth-2" onclick= "window.location.href='getoutside.html'"><span>Get Outside</span><i
+                    <button class="button-hover-like button blue lighten-5 z-depth-2"
+                        onclick="window.location.href='getoutside.html'"><span>Get Outside</span><i
                             class="fas fa-cloud-sun"></i></button>
                 </li>
             </div>
 
-            <div class="col s6 push-s2">
+            <div class="col l6 push-l2 m6 s12">
                 <li>
-                    <button class="button-hover-like button blue lighten-5 z-depth-2" onclick= "window.location.href='joke.html'"><span>Tell Me A Joke!</span><i
+                    <button class="button-hover-like button blue lighten-5 z-depth-2"
+                        onclick="window.location.href='joke.html'"><span>Tell Me A Joke!</span><i
                             class="fas fa-smile-wink"></i></button>
                 </li>
             </div>
         </div>
+
+        <div class="divider"></div>
+
+        <h1>National Park Search</h1>
+        <section class="search-section">
+            <form class="search-form">
+                <div class="form-group"></div>
+                <label for="state-code">Enter state(s). Format: CA or CA, TX, NC</label>
+                <input type="text" id="state-code" class="form-control" value="CA" />
+    </div><button class="btn btn-primary" type="submit" id="search-button">
+        <i class="fas fa-search"></i>
+    </button>
+    </form>
+    </section>
+    <div class="container" id="searchResults">
+        <section class="results-section">
+            <h2>Parks</h2>
+            <p class="card-text" id="park"></p>
+            <p class="card-text" id="description"></p>
+            <img src="" alt="" width="350" height="350"></img>
+        </section>
+    </div>
 
 
 
@@ -89,12 +117,78 @@
 
 
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+
+    <script>
+        let apiKey = "goT1auqPF7mk9fIy1C6y9SQbq0XgI26ohGyFM75o";
+        let states = [];
+        let yourstate = "";
+        searchStates();
+        saveStates();
+        function getStates() {
+            let stateStorage = localStorage.getItem("states");
+            stateparks();
+        }
+        //localstorage for user city search
+        function saveStates() {
+            localStorage.setItem("states", yourstate);
+        }
+        function searchStates() {
+            $("#search-button").on("click", function (event) {
+                console.log("#search-button");
+                event.preventDefault();
+                yourstate = $("#state-code").val();
+                console.log("yourstate");
+                states.push(yourstate);
+                saveStates();
+                stateparks();
+            })
+        }
+        function stateparks() {
+            var queryURL = "https://developer.nps.gov/api/v1/parks?stateCode=" + yourstate + "&api_key=goT1auqPF7mk9fIy1C6y9SQbq0XgI26ohGyFM75o"
+            //"https://developer.nps.gov/api/v1/parks?parkCode=" + yourstate + "acad&api_key=goT1auqPF7mk9fIy1C6y9SQbq0XgI26ohGyFM75o"
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+                .then(function (response) {
+                    console.log(queryURL);
+                    var searchResults = $("#searchResults");
+                    var parkName;
+                    var description;
+                    var url;
+                    var altag;
+                    var list = response.data;
+                    console.log(list);
+                    searchResults.empty();
+                    for (let i = 0; i < 5; i++) {
+                        parkList = list[i];
+                        parkName = parkList.name
+                        console.log(parkList);
+                        description = parkList.description
+                        url = parkList.images[0].url
+                        altag = parkList.images[0].altText
+                        console.log(url);
+                        var section = `<section class="results-section">
+                                 <h2>Parks</h2>
+                                 <p class="card-text" id="park">${parkName}</p>
+                                 <p class="card-text" id="description">${description}</p>
+                                 <img src="${url}" alt="${altag}" width="350" height="350"></img>
+                                 </section>`;
+                        searchResults.append(section);
+                    }
+                    // $("#park").html("<p>" + response.data[0].name + "</p>");
+                    // $("#description").html("<p>" + response.description + "</p>");
+                    // $(".results-ul").html("<h2>" + response.name + "</h2>");
+                })
+        }
+    </script>
+
+
+
+
     <script src="script.js"></script>
 </body>
 
 </html>
-
-
-    
-

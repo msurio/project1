@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--Style CSS-->
     <link rel="stylesheet" href="style.css">
+    <!--jQuery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
     <title>Quarantine Planner</title>
 </head>
 
-<body> 
+<body>
     <header>
         <h1><a href="index.html">Quarantine Day Planner</a></h1>
         <hr>
@@ -37,28 +41,45 @@
         <div class="card">
             <!--Lazy / Netflix-->
             <button class="button-hover-like button one"><a href="https://auth.hulu.com/web/login">
-                <span>Hulu Login</span>
+                    <span>Hulu Login</span>
 
-                <button class="button-hover-like button two" style="height: 70px;"><a href="https://www.netflix.com/Login">
-                    <span>Netflix Login</span>
-                <div class="card">
+                    <button class="button-hover-like button two" style="height: 70px;"><a
+                            href="https://www.netflix.com/Login">
+                            <span>Netflix Login</span>
+                            <div class="card">
+                            </div>
+
+
+
+
+                            <!-- Going Outside The House-->
         </div>
-        
 
-
-        
-            <!-- Going Outside The House-->
-        </div>
-
-        <div class="card">
-            <!--Tell Me A Joke-->
-        </div>
     </div>
+    <div class="container" id="trendingMovies"></div>
+
+    <script>
+        function displayMovies() {
+            var queryURL = "https://api.themoviedb.org/3/trending/movie/week?api_key=18fb1cc7712bd55ecc3a35147f04188f";
+            console.log(queryURL);
+            console.log(response);
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+
+            }).then(function (response) {
+                var list = response.results;
+                console.log(response);
+            })
+        }
+    </script>
 
 
 
-    
 
-<script src="script.js"></script>    
+
+    <!--<script src="script.js"></script> -->
 </body>
+
 </html>
